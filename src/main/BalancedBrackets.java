@@ -1,6 +1,7 @@
 package main;
 
 
+
 public class BalancedBrackets {
     /**
      * The function BalancedBrackets should return true if and only if
@@ -22,7 +23,17 @@ public class BalancedBrackets {
      * @return true if balanced, false otherwise
      */
     public static boolean hasBalancedBrackets(String str) {
+        int lastOpenBracket = str.lastIndexOf("[");
+        int lastCloseBracket = str.lastIndexOf("]");
+        int firstOpenBracket = str.indexOf("[");
+        int firstCloseBracket = str.indexOf("]");
         int brackets = 0;
+
+        if (lastOpenBracket>lastCloseBracket) {
+            return false;
+        } else if (firstCloseBracket<firstOpenBracket) {
+            return false;
+        }
         for (char ch : str.toCharArray()) {
             if (ch == '[') {
                 brackets++;
@@ -32,4 +43,8 @@ public class BalancedBrackets {
         }
         return brackets == 0;
     }
+
+    //if no brackets are passed?
+    //if brackets are out of order ex: "]["
+    //if brackets
 }
